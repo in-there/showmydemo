@@ -49,8 +49,8 @@ onMounted(() => {
 <style scoped>
 /* 整体样式 */
 .cursor {
-  min-height: 100vh;
-  min-width: 100vw;
+  min-height: 100%;
+  min-width: 100%;
   overflow: hidden;
   background-color: #222;
   background-image: linear-gradient(to right, #333 1px, transparent 1px),
