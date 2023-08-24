@@ -1,0 +1,49 @@
+body{
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.box{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow:hidden;
+    border-radius: 8px;
+    border: 6px solid transparent;
+}
+
+.box .test{
+    border-radius: 8px;
+    inset: 8px;
+    position: absolute;
+    background-color: rgb(61, 239, 197);
+}
+
+
+
+.box::before{
+    background-image: linear-gradient(0deg,transparent, #0076fa, #0076fa, #0076fa);
+    content: '';
+    width:100px;
+    height: 100px;
+    top: -50%;
+    left: -50%;
+    position: absolute;
+    z-index:-888;
+    animation: rote 2s linear infinite;
+    transform-origin: bottom right;
+}
+
+@keyframes rote {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
