@@ -1,0 +1,86 @@
+/* 整个body样式 */
+body {
+  background-color: #151715;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 整个菜单栏 */
+nav {
+  background-color: #222327;
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 40px;
+  padding:0 1rem;
+  border-radius: 6px;
+}
+
+/* 菜单栏中的每个选项 */
+nav a {
+  color: #999999;
+  text-decoration: none;
+  text-align: center;
+  min-width: 60px;
+  z-index: 2;
+}
+
+/* 菜单栏中的每个选项的激活状态 */
+nav a.active {
+  color: #222327;
+}
+
+/* 菜单栏中的每个选项的激活状态下的指示器 */
+#indicator {
+  position: absolute;
+  height: 40px;
+  background-color: #29fd53;
+  min-width: 60px;
+  z-index: 1;
+  transition: 0.5s;
+  left: 1rem;
+}
+
+#indicator::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  min-width: 20px;
+  height: 8px;
+  background-color: #29fd53;
+  border-radius: 6px;
+  transition: 0.5s;
+  box-shadow: 0.5rem 1rem #29fd53, 0.16rem 2rem #29fd53, 0.5rem 0.5rem #222327,
+    0.3rem 1.5rem #222327;
+}
+
+#indicator::after {
+  content: "";
+  position: absolute;
+  right: -1rem;
+  min-width: 20px;
+  height: 8px;
+  background-color: #29fd53;
+  border-radius: 6px;
+  transition: 0.5s;
+  box-shadow: -0.3rem 1rem #29fd53, -0.2rem 2rem #29fd53, -0.2rem 0.5rem #222327,
+    -0.3rem 1.5rem #222327;
+}
+
+/* 菜单栏中的每个选项的改变状态下的指示器 */
+#indicator.change::before {
+  left: -0.1rem;
+  box-shadow: -0.3rem 1rem #29fd53, 0rem 2rem #29fd53, -0.2rem 0.5rem #222327,
+    -0.3rem 1.5rem #222327;
+}
+
+#indicator.change::after {
+  right: -1rem;
+  box-shadow: -0.1rem 1rem #29fd53, -0.6rem 2rem #29fd53, -0.5rem 0.5rem #222327,
+    -0.3rem 1.5rem #222327;
+}
