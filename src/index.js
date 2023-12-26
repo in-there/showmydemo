@@ -1,21 +1,21 @@
 import {
-    BoxGeometry,
-    Mesh,
-    MeshBasicMaterial,
-    PerspectiveCamera,
-    Scene,
-    WebGLRenderer,
-    Color,
-} from 'three';
+  BoxGeometry,
+  Mesh,
+  MeshBasicMaterial,
+  PerspectiveCamera,
+  Scene,
+  WebGLRenderer,
+  Color,
+} from "three";
 
 // 获取容器
-const container = document.getElementById('scene-container');
+const container = document.getElementById("scene-container");
 
 // 创建场景
 const scene = new Scene();
 
 // 设置背景色
-scene.background = new Color('black');
+scene.background = new Color("black");
 
 // 创建相机
 const fov = 35; // 视野范围
@@ -33,7 +33,7 @@ const geometry = new BoxGeometry(2, 2, 2);
 // 创建材质
 const material = new MeshBasicMaterial();
 //材质颜色
-material.color.set('skyblue');
+material.color.set("skyblue");
 //线框模式
 material.wireframe = true;
 
@@ -59,4 +59,10 @@ renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
 // 渲染场景
-renderer.render(scene, camera);
+setInterval(() => {
+//设置网格旋转
+  mesh.rotation.z += 0.01;
+  mesh.rotation.x += 0.01;
+  mesh.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}, 1000 / 60);
