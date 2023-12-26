@@ -10,5 +10,10 @@ export  default {
     esbuild: {
         target: 'es2015',
     },
+    build: {
+        outDir: '../dist',
+        assetsDir: 'assets',
+        sourcemap: false,
+    },
 
 }
