@@ -79,7 +79,7 @@ function mouseup(e) {
         align-items: center;
         justify-content: center;
         position: relative;
-        z-index: 1;
+        z-index: 888;
     }
 
     &-content {
@@ -98,7 +98,7 @@ function mouseup(e) {
     &-arrow {
         color: #233;
         position: absolute;
-        bottom: calc(50% + 3rem);
+        bottom: 3rem;
         z-index: -1;
         svg {
             width: 3rem;
@@ -130,7 +130,7 @@ function mouseup(e) {
         }
 
         &-arrow {
-            bottom: calc(50% + 3rem);
+            bottom: 3rem;
 
             svg {
                 width: 3rem;
