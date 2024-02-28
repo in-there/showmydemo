@@ -46,7 +46,7 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
 
     &-content {
         text-align: center;
-        margin-top: 10vh;
+        margin-top: 20vh;
         font-size: 0.5rem;
         color: #fff;
         line-height: 0.7;
@@ -60,7 +60,7 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
     &-arrow {
         color: #233;
         position: absolute;
-        bottom: 10rem;
+        bottom:2rem;
         z-index: -1;
 
         svg {
@@ -93,7 +93,7 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
         }
 
         &-arrow {
-            bottom: 6rem;
+            bottom: 3rem;
 
             svg {
                 width: 3rem;
@@ -116,7 +116,7 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
 
         &-content {
             font-size: 1.5rem;
-            margin-top: 20vh;
+            margin-top: 40vh;
         }
 
         &-arrow {
