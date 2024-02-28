@@ -147,7 +147,7 @@ nav.mobile {
             position: relative;
 
             &:hover {
-                color: #fff;
+                color: #22CCEE;
 
                 &::before {
                     content: "";
