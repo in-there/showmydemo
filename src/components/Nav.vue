@@ -68,11 +68,12 @@ nav.mobile {
     justify-content: space-between;
     background-color: #fff5;
     width: 70%;
-    margin: 30px auto 10px auto;
+    margin: 30px auto;
     padding: 0.4rem;
     border-radius: 15px;
     backdrop-filter: blur(10px);
     top: 10px;
+    position: absolute;
     .mobile-navlink {
         opacity: 0;
         z-index: -99;
@@ -134,11 +135,12 @@ nav.mobile {
         gap: 2rem;
         background-color: #fff5;
         width: 80%;
-        margin: 30px auto 10px auto;
+        margin: 30px auto;
         padding: 1rem;
         border-radius: 15px;
         backdrop-filter: blur(10px);
-
+        position: absolute;
+        top: 0;
         a {
             text-decoration: none;
             color: #223;

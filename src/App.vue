@@ -1,6 +1,8 @@
 <template>
-  <div @mouseup="mouseup">
-    <Nav :navstates="navlink" @navevent="toggleNav" />
+  <div class="all" @mouseup="mouseup">
+    <div class="all-nav">
+      <Nav :navstates="navlink" @navevent="toggleNav" />
+    </div>
     <router-view></router-view>
     <Bottom />
   </div>
@@ -44,4 +46,12 @@ function mouseup(e) {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.all{
+  &-nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+</style>

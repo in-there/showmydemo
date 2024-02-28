@@ -1,5 +1,5 @@
 <template>
-    <div class="home" @mouseup="mouseup">
+    <div class="home">
         <div class="home-head">
             <div class="home-content">
                 <h1>All you need to create</h1>

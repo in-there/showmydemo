@@ -83,7 +83,7 @@ function nextFunc() {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #2225;
+    background-color: #EAECF5;
     .box {
         position: relative;
         top: -60px;
@@ -107,7 +107,7 @@ function nextFunc() {
 
     .btns {
         position: absolute;
-        bottom: 0px;
+        bottom: 4em;
         display: flex;
         gap: 30px;
 
