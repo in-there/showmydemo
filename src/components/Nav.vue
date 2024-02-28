@@ -1,7 +1,7 @@
 <template>
     <nav class="pc">
         <router-link to="/">Home</router-link>
-        <router-link to="/">Details</router-link>
+        <router-link to="/slider">Slider</router-link>
         <router-link to="/">Shop</router-link>
         <router-link to="/">Theme</router-link>
         <router-link to="/">Project</router-link>
@@ -10,7 +10,8 @@
     </nav>
     <nav class="mobile">
         <div class="mobile-navdetail" @click="taggleNav">
-            <svg class="mobile-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="mobile-svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M2 8C2 7.44772 2.44772 7 3 7H21C21.5523 7 22 7.44772 22 8C22 8.55228 21.5523 9 21 9H3C2.44772 9 2 8.55228 2 8Z"
                     fill="currentColor" />
@@ -24,7 +25,7 @@
         </div>
         <div :class="navstates">
             <router-link to="/">Home</router-link>
-            <router-link to="/">Details</router-link>
+            <router-link to="/slider">Slider</router-link>
             <router-link to="/">Shop</router-link>
             <router-link to="/">Theme</router-link>
             <router-link to="/">Project</router-link>
@@ -37,7 +38,7 @@
     </nav>
 </template>
 <script setup >
-import { ref,defineProps,defineEmits } from 'vue';
+import { ref, defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
     navstates: String
@@ -51,6 +52,12 @@ function taggleNav() {
 
 </script>
 <style lang="scss" scoped >
+.pc,
+.mobile {
+    position: relative;
+    z-index: 999;
+}
+
 nav.pc {
     display: none;
 }
@@ -65,9 +72,7 @@ nav.mobile {
     padding: 0.4rem;
     border-radius: 15px;
     backdrop-filter: blur(10px);
-    position: absolute;
     top: 10px;
-
     .mobile-navlink {
         opacity: 0;
         z-index: -99;
@@ -85,6 +90,7 @@ nav.mobile {
         gap: 0.4rem;
         padding: 0.2rem 0;
         overflow: hidden;
+
         a {
             text-decoration: none;
             color: #fff;
@@ -137,20 +143,21 @@ nav.mobile {
             text-decoration: none;
             color: #223;
             position: relative;
-        &:hover
-        {
-            color: #fff; 
-            &::before {
-                content: "";
-                display: block;
-                position: absolute;
-                bottom: -0.5rem;
-                border-bottom: #223 4px solid;
-                animation: ease-in 0.3s forwards wave;
+
+            &:hover {
+                color: #fff;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    bottom: -0.5rem;
+                    border-bottom: #223 4px solid;
+                    animation: ease-in 0.3s forwards wave;
+                }
             }
         }
-        }
-           
+
     }
 
     nav.mobile {

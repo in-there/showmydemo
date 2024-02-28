@@ -347,3 +347,7 @@ template {
 [hidden] {
   display: none;
 }
+
+:root{
+  background-color: #121926;
+}

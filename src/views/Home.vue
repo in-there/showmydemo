@@ -1,7 +1,6 @@
 <template>
     <div class="home" @mouseup="mouseup">
         <div class="home-head">
-            <Nav :navstates="navlink" @navevent="toggleNav" />
             <div class="home-content">
                 <h1>All you need to create</h1>
                 <h1><span>amazing</span> content</h1>
@@ -18,50 +17,14 @@
             </div>
         </div>
         <HomeContent />
-        <HomeBorder />
     </div>
 </template>
 
 <script setup >
-import Nav from '../components/Nav.vue';
-import { ref,defineAsyncComponent } from 'vue';
+import { ref, defineAsyncComponent } from 'vue';
 
-const navlink = ref('mobile-navlink');
-const navstates = ref(true);
 const HomeContent = defineAsyncComponent(() => import('../components/HomeContent.vue'));
-const HomeBorder = defineAsyncComponent(() => import('../components/HomeBorder.vue'));
 
-
-/*
-    This function is used to toggle the mobile navigation links
-*/
-function toggleNav() {
-    console.log('navlink', navlink.value, navstates.value);
-    if (navlink.value === 'mobile-navlink' && navstates.value) {
-        navlink.value = 'mobile-navlink active';
-    } else if (!navstates.value || navlink.value === 'mobile-navlink active') {
-        navlink.value = 'mobile-navlink';
-    }
-}
-
-function mouseup(e) {
-    console.log(e.target.localName);
-    if (e.target.className !== 'mobile-navlink active'
-    ) {
-        if (e.target.localName === 'svg') {
-            if (e.target.className.baseVal === 'mobile-svg') {
-                return;
-            }
-        }
-        if (e.target.localName === 'path') {
-            if (e.target.parentNode.className.baseVal === 'mobile-svg') {
-                return;
-            }
-        }
-        navlink.value = 'mobile-navlink';
-    }
-
-}
 </script>
 
 <style lang="scss" scoped>
@@ -70,7 +33,6 @@ function mouseup(e) {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #121926;
     &-head {
         width: 100%;
         height: 50vh;
@@ -84,7 +46,7 @@ function mouseup(e) {
 
     &-content {
         text-align: center;
-        margin-top: 20vh;
+        margin-top: 10vh;
         font-size: 0.5rem;
         color: #fff;
         line-height: 0.7;
@@ -98,8 +60,9 @@ function mouseup(e) {
     &-arrow {
         color: #233;
         position: absolute;
-        bottom: 3rem;
+        bottom: 10rem;
         z-index: -1;
+
         svg {
             width: 3rem;
             height: 3rem;
@@ -130,7 +93,7 @@ function mouseup(e) {
         }
 
         &-arrow {
-            bottom: 3rem;
+            bottom: 6rem;
 
             svg {
                 width: 3rem;
@@ -150,12 +113,14 @@ function mouseup(e) {
         &-head {
             height: 100vh;
         }
+
         &-content {
             font-size: 1.5rem;
+            margin-top: 20vh;
         }
 
         &-arrow {
-            bottom: 10vh;
+            bottom: 10rem;
 
             svg {
                 width: 3rem;
@@ -167,5 +132,4 @@ function mouseup(e) {
             bottom: 0;
         }
     }
-}
-</style>
+}</style>
