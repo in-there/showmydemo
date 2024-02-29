@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
+    <div class="content" v-for="(val,index) in data" :key="index" >
         <div class="content-details">
             <div class="content-details-text">
                 <h2>
@@ -10,44 +10,31 @@
                 </p>
             </div>
             <div class="content-details-img">
-                <img src="../assets/content01.jpg" loading="lazy" alt="" srcset="">
-            </div>
-        </div>
-        <div class="content-empty"></div>
-    </div>
-    <div class="content">
-        <div class="content-details">
-            <div class="content-details-text">
-                <h2>
-                    Build UI components and pages in isolation
-                </h2>
-                <p>
-                    Implement components and pages without needing to fuss with data, APIs, or business logic.
-                </p>
-            </div>
-            <div class="content-details-img">
-                <img src="../assets/content02.jpg" loading="lazy" alt="" srcset="">
-            </div>
-        </div>
-        <div class="content-empty"></div>
-    </div>
-    <div class="content">
-        <div class="content-details">
-            <div class="content-details-text">
-                <h2>
-                    Build UI components and pages in isolation
-                </h2>
-                <p>
-                    Implement components and pages without needing to fuss with data, APIs, or business logic.
-                </p>
-            </div>
-            <div class="content-details-img">
-                <img src="../assets/content03.jpg" loading="lazy" alt="" srcset="">
+                <img :src="val?.src" loading="lazy" alt="" srcset="">
             </div>
         </div>
         <div class="content-empty"></div>
     </div>
 </template>
+<script setup >
+import { ref } from 'vue';
+import content01 from '../assets/content01.jpg';
+import content02 from '../assets/content02.jpg';
+import content03 from '../assets/content03.jpg';
+
+const data = ref([
+    {
+        src: content01,
+    },
+    {
+        src: content02,
+    },
+    {
+        src: content03,
+    }
+])
+
+</script>
 <style lang="scss"  scoped >
 .content {
     &-details {

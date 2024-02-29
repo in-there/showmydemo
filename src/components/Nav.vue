@@ -2,7 +2,7 @@
     <nav class="pc">
         <router-link to="/">Home</router-link>
         <router-link to="/slider">Slider</router-link>
-        <router-link to="/">Shop</router-link>
+        <router-link to="/drop">Drop</router-link>
         <router-link to="/">Theme</router-link>
         <router-link to="/">Project</router-link>
         <router-link to="/">Personal</router-link>
@@ -26,7 +26,7 @@
         <div :class="navstates">
             <router-link to="/">Home</router-link>
             <router-link to="/slider">Slider</router-link>
-            <router-link to="/">Shop</router-link>
+            <router-link to="/drop">Drop</router-link>
             <router-link to="/">Theme</router-link>
             <router-link to="/">Project</router-link>
             <router-link to="/">Personal</router-link>
@@ -38,7 +38,6 @@
     </nav>
 </template>
 <script setup >
-import { ref, defineProps, defineEmits } from 'vue';
 
 const props = defineProps({
     navstates: String
@@ -74,6 +73,7 @@ nav.mobile {
     backdrop-filter: blur(10px);
     top: 10px;
     position: absolute;
+
     .mobile-navlink {
         opacity: 0;
         z-index: -99;
@@ -141,6 +141,7 @@ nav.mobile {
         backdrop-filter: blur(10px);
         position: absolute;
         top: 0;
+
         a {
             text-decoration: none;
             color: #223;

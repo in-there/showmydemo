@@ -27,7 +27,6 @@ function toggleNav() {
 }
 
 function mouseup(e) {
-  console.log(e.target.localName);
   if (e.target.className !== 'mobile-navlink active'
   ) {
     if (e.target.localName === 'svg') {

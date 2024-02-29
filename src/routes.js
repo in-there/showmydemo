@@ -10,6 +10,11 @@ const routes = [
         path:"/slider",
         name:"Slider",
         component:()=>import("./views/Slider.vue")
+    },
+    {
+        path:"/drop",
+        name:"Drop",
+        component:()=>import("./views/Drop.vue")
     }
 ]
 
