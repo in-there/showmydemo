@@ -8,23 +8,38 @@
     </div>
 </template>
 <script setup>
+// 定义props和emit
 const props = defineProps({
     data: Array
 })
 const emits = defineEmits(['drop', 'dragstart', 'touchstart', 'touchmove']);
+
+
+/*
+* @description: 拖拽事件
+*/
 function drop(event) {
     emits('drop', event);
 }
 
+/*
+* @description: 拖拽开始事件
+*/
 function dragstart(event) {
     emits('dragstart', event);
 }
 
+/*
+* @description: 点击结束事件
+*/
 function touchend(event) {
     event.preventDefault();
     // emits('touchmove', event);
 }
 
+/*
+* @description: 点击开始事件
+*/
 function touchstart(event) {
     emits('touchstart', event);
 }

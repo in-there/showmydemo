@@ -39,12 +39,16 @@
 </template>
 <script setup >
 
+// 定义props和emit
 const props = defineProps({
     navstates: String
 });
 
 const emit = defineEmits(['navevent']);
 
+/*
+* @description: 切换导航栏状态
+*/
 function taggleNav() {
     emit('navevent');
 }

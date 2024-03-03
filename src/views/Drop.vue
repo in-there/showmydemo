@@ -1,11 +1,13 @@
 <template>
     <div class="drop">
         <DropLeft :data="data" @reset="reset" @dragstart="dragstart" />
-        <DropRight :data="rightData" @touchstart="touchstart" @touchmove="touchmove" @dragstart="dragstart" @drop="drop" />
+        <DropRight :data="rightData" @touchstart="touchstart" @touchmove="touchmove" @dragstart="dragstart"
+            @drop="drop" />
     </div>
 </template>
 
 <script setup>
+// 导入相关库和图片
 import { ref, defineAsyncComponent, onBeforeMount } from 'vue';
 import img01 from '../assets/drop/1.jpeg';
 import img02 from '../assets/drop/2.jpeg';
@@ -16,8 +18,12 @@ import img06 from '../assets/drop/6.jpeg';
 import img07 from '../assets/drop/7.jpeg';
 import img08 from '../assets/drop/8.jpeg';
 import img09 from '../assets/drop/9.jpeg';
+
+// 异步加载组件
 const DropLeft = defineAsyncComponent(() => import('../components/DropLeft.vue'));
 const DropRight = defineAsyncComponent(() => import('../components/DropRight.vue'));
+
+// 定义初始拼图数据
 const data = ref([
     {
         img: {
@@ -75,8 +81,10 @@ const data = ref([
     }
 ])
 
+// 备份初始拼图数据
 const dataBackup = ref(JSON.parse(JSON.stringify(data.value)));
 
+// 定义右侧拼图数据
 const rightData = ref([
     {
         refstates: "rightblock1",
@@ -125,30 +133,38 @@ const rightData = ref([
     }
 ])
 
+// 备份右侧拼图数据
 const rightDataBackup = ref(JSON.parse(JSON.stringify(rightData.value)));
 
-
+// 定义拖拽状态
 const dropsates = ref("")
-
+// 定义拖拽标签
 const droptag = ref(true);
-
+// 定义拖拽图片
 const touchReg = ref("");
-
+// 定义拖拽图片id
 const img = ref("");
-
+// 定义点击次数
 const touchNum = ref(0);
 
+// 随机打乱拼图
 onBeforeMount(() => {
     data.value.sort(() => Math.random() - 0.5);
 })
 
-
+/*
+* @description 重置拼图
+*/
 function reset() {
     data.value = JSON.parse(JSON.stringify(dataBackup.value));
     data.value.sort(() => Math.random() - 0.5);
     rightData.value = JSON.parse(JSON.stringify(rightDataBackup.value));
 }
 
+/*
+* @description 拖拽开始
+* @param {Object} e 事件对象
+*/
 function dragstart(e) {
     dropsates.value = e.target.id;
     if (e.target.id.includes("rightblock") && touchReg.value.includes("rightblock")) {
@@ -165,6 +181,11 @@ function dragstart(e) {
     touchReg.value = e.target.id;
 }
 
+/*
+* @description 右边拼图点击拖拽事件
+* @param {Object} e 事件对象
+*/
+
 function dropRight(num) {
     const regImg = rightData.value[num].img;
     const regRefid = rightData.value[num].refid;
@@ -174,6 +195,10 @@ function dropRight(num) {
     rightData.value.find((val) => val.refstates === dropsates.value).refid = regRefid;
 }
 
+/*
+* @description 左边边拼图拖拽事件
+* @param {Object} e 事件对象
+*/
 function dropLeft(num) {
     if (!data.value.find((val) => val.refstates === dropsates.value)?.img?.backgroundImage) {
         return;
@@ -183,6 +208,11 @@ function dropLeft(num) {
     data.value.find((val) => val.refstates === dropsates.value).img = {};
 }
 
+
+/*
+* @description 拖拽事件 pc模式下
+* @param {Object} e 事件对象
+*/
 function drop(e) {
     e.preventDefault();
     if (droptag.value) {
@@ -248,7 +278,10 @@ function drop(e) {
     }
 }
 
-
+/*
+* @description 开始点击拖拽事件 移动端模式下
+* @param {Object} e 事件对象
+*/
 function touchstart(e) {
     dragstart(e);
     if (e.target.id.includes("rightblock")
@@ -265,6 +298,11 @@ function touchstart(e) {
     }
 }
 
+/*
+* @description 移动端拖拽事件
+* @param {Number} num 拼图索引
+*/
+
 function touch(num) {
     if (img?.value?.includes("rightblock") && touchNum.value === 1) {
         const regImg2 = rightData.value[num].img;
@@ -279,6 +317,11 @@ function touch(num) {
 
 }
 
+
+/*
+* @description 移动端拖拽事件
+* @param {Object} e 事件对象
+*/
 function touchmove(e) {
     drop(e);
     e.preventDefault();
@@ -316,7 +359,7 @@ function touchmove(e) {
 
 </script>
 
-<style lang="scss" scoped >
+<style lang="scss" scoped>
 .drop {
     min-height: 100vh;
     display: flex;

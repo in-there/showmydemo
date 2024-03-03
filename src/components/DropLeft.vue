@@ -10,21 +10,29 @@
     </div>
 </template>
 <script setup >
-import { ref, onBeforeMount } from 'vue';
-
+// 定义props和emit
 const props = defineProps({
     data: Array
 })
-
 const emits = defineEmits(['reset', 'dragstart']);
 
+/*
+* @description: 重置事件
+*/
 function reset() {
     emits('reset');
 }
 
+/*
+* @description: 拖拽开始事件
+*/
 function dragstart(event) {
     emits('dragstart', event);
 }
+
+/*
+* @description: 点击开始事件
+*/
 function touchstart(event) {
     emits('dragstart', event);
 }

@@ -16,6 +16,7 @@
     </div>
 </template>
 <script setup >
+// 导入相关库和图片
 import ImgCard from '../components/ImgCard.vue';
 import content01 from "../assets/content01.jpg";
 import content02 from "../assets/content02.jpg";
@@ -23,7 +24,10 @@ import content03 from "../assets/content03.jpg";
 import content04 from "../assets/content04.jpg";
 import { ref } from 'vue';
 
+// 定义获取box元素
 const box = ref(null);
+
+// 定义图片数据
 const imgCardDetail = [
     {
         img: content01,
@@ -48,11 +52,13 @@ const imgCardDetail = [
 ]
 
 
-
+// 定义旋转角度和旋转状态
 let degree = 0;
 let bool = true;
 
-
+/*
+* @description: 上一张图片
+*/
 function prevFunc() {
     if (bool) {
         degree += 90;
@@ -64,6 +70,9 @@ function prevFunc() {
     }
 }
 
+/*
+* @description: 下一张图片
+*/
 function nextFunc() {
     if (bool) {
         degree -= 90;

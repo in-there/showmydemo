@@ -17,11 +17,13 @@
     </div>
 </template>
 <script setup >
+// 导入相关库和图片
 import { ref } from 'vue';
 import content01 from '../assets/content01.jpg';
 import content02 from '../assets/content02.jpg';
 import content03 from '../assets/content03.jpg';
 
+// 定义图片数据
 const data = ref([
     {
         src: content01,

@@ -21,8 +21,9 @@
 </template>
 
 <script setup >
+// 导入相关库
 import { ref, defineAsyncComponent } from 'vue';
-
+// 异步加载组件
 const HomeContent = defineAsyncComponent(() => import('../components/HomeContent.vue'));
 
 </script>

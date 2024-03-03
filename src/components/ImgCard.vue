@@ -9,6 +9,7 @@
     </div>
 </template>
 <script setup >
+// 定义props
 const props = defineProps({
     num: String,
     img: String
