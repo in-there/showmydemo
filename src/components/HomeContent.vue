@@ -10,7 +10,7 @@
                 </p>
             </div>
             <div class="content-details-img">
-                <img :src="val?.src" loading="lazy" alt="" srcset="">
+                <Img v-lazy="val.src" class="content-details-img-detail"/>
             </div>
         </div>
         <div class="content-empty"></div>
@@ -18,10 +18,12 @@
 </template>
 <script setup >
 // 导入相关库和图片
-import { ref } from 'vue';
+import { ref,defineAsyncComponent } from 'vue';
 import content01 from '../assets/content01.jpg';
 import content02 from '../assets/content02.jpg';
 import content03 from '../assets/content03.jpg';
+
+const Img = defineAsyncComponent(() => import('./Img.vue'));
 
 // 定义图片数据
 const data = ref([
@@ -35,6 +37,7 @@ const data = ref([
         src: content03,
     }
 ])
+
 
 </script>
 <style lang="scss"  scoped >
@@ -54,11 +57,10 @@ const data = ref([
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width:fit-content;
-            img {
-                width: 70vw;
-                object-fit: cover;
-                object-position: center;
+            width:70vw;
+            &-detail {
+                width: 100%;
+                height: 40vh;
             }
         }
 
@@ -99,7 +101,7 @@ const data = ref([
                 }
             }
             &-img{
-                img{
+                &-detail{
                     width: 40vw;
                 }
             }
