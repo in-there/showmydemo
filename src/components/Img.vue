@@ -3,12 +3,11 @@
         <div class="img-loading">
             <Loading></Loading>
         </div>
-        <img class="fade" :src="img">
+        <img class="fade">
     </div>
 </template>
 <script setup >
 import Loading from './Loading.vue';
-const props = defineProps(['img'])
 </script>
 <style lang="scss" scoped >
 .img{
