@@ -15,11 +15,6 @@ function DefineLazy(app) {
       });
       observer.observe(el);
     },
-    updated(el, binding) {
-      console.log("Lazy updated", el, binding.value);
-      const img = el.children[1];
-      img.classList.remove("fade");
-    },
   });
 }
 
