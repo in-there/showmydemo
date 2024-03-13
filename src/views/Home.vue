@@ -1,6 +1,10 @@
 <template>
     <div class="home">
         <div class="home-head">
+            <picture class="home-img">
+                <source type="image/webp" srcset="../assets/home.webp" />
+                <img src="../assets/home.jpg" alt="home img" />
+            </picture>
             <div class="home-content">
                 <h1>All you need to create</h1>
                 <h1><span>amazing</span> content</h1>
@@ -20,7 +24,7 @@
     </div>
 </template>
 
-<script setup >
+<script setup>
 // 导入相关库
 import { ref, defineAsyncComponent } from 'vue';
 // 异步加载组件
@@ -34,6 +38,7 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     &-head {
         width: 100%;
         height: 50vh;
@@ -61,7 +66,7 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
     &-arrow {
         color: #233;
         position: absolute;
-        bottom:2rem;
+        bottom: 2rem;
         z-index: -1;
 
         svg {
@@ -70,16 +75,20 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
         }
     }
 
-    &::before {
-        content: "";
-        background-image: url('../assets/home.jpg');
-        background-size: cover;
-        background-position: center;
+    &-img {
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        bottom: 50%;
+        bottom: 0;
+        z-index: -1;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
     }
 }
 
@@ -100,10 +109,6 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
                 width: 3rem;
                 height: 3rem;
             }
-        }
-
-        &::before {
-            bottom: 50%;
         }
     }
 }
@@ -129,8 +134,9 @@ const HomeContent = defineAsyncComponent(() => import('../components/HomeContent
             }
         }
 
-        &::before {
+        &-img {
             bottom: 0;
         }
     }
-}</style>
+}
+</style>
